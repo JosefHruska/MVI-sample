@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="reactor-android-extras-0.5.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/eddac12dfc4d91527bc89c50dc62fe373f8917f4/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/eddac12dfc4d91527bc89c50dc62fe373f8917f4/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.filipproch.lib/reactor-android-extras/0.5.1/ae0188e4998960c505f64a6d36031cccfdccaef8/reactor-android-extras-0.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

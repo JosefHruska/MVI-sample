@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RxApp</string>
+
+    <string name="password_valid">Password is valid</string>
+    <string name="password_invalid">Password is invalid</string>
+    <string name="user_invalid">User is invalid</string>
+    <string name="user_valid">User is valid</string>
+</resources>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="rxbinding-support-v4-kotlin-2.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/98e652e0d28ec3ecd87be98d13412899d6f68b99/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/98e652e0d28ec3ecd87be98d13412899d6f68b99/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding2/rxbinding-support-v4-kotlin/2.0.0/c36d220746b6b2b97097ae688209c02e072f3d78/rxbinding-support-v4-kotlin-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.pepah.rxapp"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.7
+        sourceCompatibility 1.7
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    // Android Support libs
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:support-v4:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    compile "com.android.support:gridlayout-v7:$supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$supportLibraryVersion"
+    compile "com.android.support:preference-v7:$supportLibraryVersion"
+    compile "com.android.support:preference-v14:$supportLibraryVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Arch Library
+    compile 'cz.filipproch.lib:reactor-android:0.5.1'
+    compile 'cz.filipproch.lib:reactor-android-extras:0.5.1'
+
+    // RxJava
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.6'
+
+    // RxBinding
+    compile "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxBindingVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:$rxBindingVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:$rxBindingVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding-design-kotlin:$rxBindingVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7-kotlin:$rxBindingVersion"
+
+    // RxBroadcast
+    compile 'com.cantrowitz:rxbroadcast:2.0.0'
+
+    // Anko
+    compile 'org.jetbrains.anko:anko-sdk15:0.9.1'
+
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+}
