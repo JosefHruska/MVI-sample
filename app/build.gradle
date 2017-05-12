@@ -51,10 +51,6 @@ dependencies {
     compile "com.android.support:preference-v14:$supportLibraryVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    // Arch Library
-    compile 'cz.filipproch.lib:reactor-android:0.5.1'
-    compile 'cz.filipproch.lib:reactor-android-extras:0.5.1'
-
     // RxJava
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.0.6'
