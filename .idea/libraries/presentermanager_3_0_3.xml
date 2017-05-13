@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="presentermanager-3.0.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/37de34d20fc604a79df8a7ac5bb9f42634fb7a65/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/37de34d20fc604a79df8a7ac5bb9f42634fb7a65/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.mosby3/presentermanager/3.0.3/3a05194930c8298b8b253d035c008ef7a446239c/presentermanager-3.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

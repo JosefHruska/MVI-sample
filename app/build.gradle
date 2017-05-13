@@ -65,6 +65,9 @@ dependencies {
     // RxBroadcast
     compile 'com.cantrowitz:rxbroadcast:2.0.0'
 
+    // Model-View-Intent
+    compile 'com.hannesdorfmann.mosby3:mvi:3.0.3' // Model-View-Intent
+
     // Anko
     compile 'org.jetbrains.anko:anko-sdk15:0.9.1'
 

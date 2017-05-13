@@ -9,15 +9,15 @@ import com.example.pepah.rxapp.view.BaseView
 
     interface BasePresenter<V : BaseView> {
 
-        /**
-         * Called when this Presenter was created (new instance) by Loader.
-         */
-        fun onCreatedByLoader()
-
-        /**
-         * Called before this Presenter is destroyed by Loader.
-         */
-        fun onDestroyedByLoader()
+//        /**
+//         * Called when this Presenter was created (new instance) by Loader.
+//         */
+//        fun onCreatedByLoader()
+//
+//        /**
+//         * Called before this Presenter is destroyed by Loader.
+//         */
+//        fun onDestroyedByLoader()
 
         /**
          * Called when this Presenter is attached to @{MvpView}
@@ -29,4 +29,6 @@ import com.example.pepah.rxapp.view.BaseView
          * Called when this Presenter is detached from @{MvpView}
          */
         fun onViewDetached()
+
+        fun bindIntents()
     }

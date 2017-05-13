@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="utils-fragment-3.0.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/b3e7d81b9c5c3d506cc63a9ea566da7e000627a0/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b3e7d81b9c5c3d506cc63a9ea566da7e000627a0/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.mosby3/utils-fragment/3.0.3/db67056bf797644909d3eb3e65981e0e0029172a/utils-fragment-3.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
