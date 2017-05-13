@@ -1,13 +1,14 @@
 package com.example.pepah.rxapp.view
 
 import com.example.pepah.rxapp.model.MainViewState
+import com.hannesdorfmann.mosby3.mvp.MvpView
 import io.reactivex.Observable
 
 /**
  * Created by pepa on 13/05/2017.
  */
 
-interface MainView: BaseView {
+interface MainView: MvpView {
 
     /**
      * The user name intent
@@ -22,6 +23,8 @@ interface MainView: BaseView {
      * @return An observable emitting password text
      */
     fun passwordIntent(): Observable<String>
+
+    fun loginIntent(): Observable<Pair<String,String>>
 
     /**
      * Renders the viewState

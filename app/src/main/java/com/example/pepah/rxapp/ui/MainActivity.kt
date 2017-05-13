@@ -5,17 +5,24 @@ import com.example.pepah.rxapp.R
 import com.example.pepah.rxapp.extensions.disable
 import com.example.pepah.rxapp.extensions.enable
 import com.example.pepah.rxapp.model.MainViewState
+import com.example.pepah.rxapp.presenter.MainPresenter
 import com.example.pepah.rxapp.view.MainView
+import com.hannesdorfmann.mosby3.mvi.MviActivity
+import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
 
 
-class MainActivity : BaseActivity(), MainView {
+class MainActivity : MviActivity<MainView, MainPresenter>(), MainView {
 
-    override fun getLayoutRes(): Int {
-        return R.layout.activity_main
+//    override fun getLayoutRes(): Int {
+//        return R.layout.activity_main
+//    }
+
+    override fun createPresenter(): MainPresenter {
+        return MainPresenter()
     }
 
     override fun userNameIntent(): Observable<String> {
@@ -28,6 +35,11 @@ class MainActivity : BaseActivity(), MainView {
         return RxTextView.textChanges(vPassword) // Thanks Jake Wharton :)
                 .filter({ queryString -> queryString.length >= 8 || queryString.isEmpty() })
                 .debounce(500, TimeUnit.MILLISECONDS).map { it.toString() }
+    }
+
+    override fun loginIntent(): Observable<Pair<String, String>> {
+        setContentView(R.layout.activity_main)
+        return RxView.clicks(vAction).map { Pair(vName.text.toString(), vPassword.text.toString()) }
     }
 
     override fun render(viewState: MainViewState) {

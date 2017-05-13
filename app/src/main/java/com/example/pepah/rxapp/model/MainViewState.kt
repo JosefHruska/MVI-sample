@@ -30,5 +30,9 @@ sealed class MainViewState {
     /**
      * Indicates that an error has occurred while searching
      */
-    class Error(val searchQueryText: String, val error: Throwable) : MainViewState()
+    class Error(val error: Throwable) : MainViewState() {
+        fun new() {
+
+        }
+    }
 }

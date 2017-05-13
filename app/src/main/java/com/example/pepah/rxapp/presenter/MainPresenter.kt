@@ -1,36 +1,42 @@
 package com.example.pepah.rxapp.presenter
 
-import com.example.pepah.rxapp.R.id.vName
-import com.example.pepah.rxapp.R.id.vPassword
+import com.example.pepah.rxapp.data.AwesomeNetworkModel
+import com.example.pepah.rxapp.extensions.ld
+import com.example.pepah.rxapp.model.MainViewState
 import com.example.pepah.rxapp.view.MainView
-import com.jakewharton.rxbinding2.widget.RxTextView
+import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import io.reactivex.Observable
-import kotlinx.android.synthetic.main.activity_main.*
-import java.util.concurrent.TimeUnit
+import io.reactivex.android.schedulers.AndroidSchedulers
+
 
 /**
  * Created by pepa on 13/05/2017.
  */
 
-class MainPresenter: BasePresenter<MainView> {
+class MainPresenter : MviBasePresenter<MainView, MainViewState>() {
 
     override fun bindIntents() {
 
+        val login: Observable<MainViewState> = intent(MainView::loginIntent).doOnNext {
+            ld("Logging username ${it.first} password: ${it.second}")}.map {
+                var state: MainViewState? = null
+                if (AwesomeNetworkModel.checkLogin(it.first, it.second)) {
+                    state = MainViewState.LoginResult("Welcome ${it.first}")
+                } else {
+                    state = MainViewState.WrongLogin("Invalid Credentials")
+                }
+                state!!
+            }
+            .startWith { MainViewState.Loading()  }
+                .observeOn(AndroidSchedulers.mainThread())
 
 
-        var allIntents = Observable.merge(userNameIntent(), passwordIntent())
-//    subscribeViewState(allI)
+        subscribeViewState(login, MainView::render)
+
+
+
+//        var allIntents = Observable.merge(login, passwordIntent())
     }
 
-    override fun onViewAttached(view: MainView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
-    override fun onViewDetached() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun equals(other: Any?): Boolean {
-        return super.equals(other)
-    }
 }
