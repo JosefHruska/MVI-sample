@@ -25,7 +25,7 @@ sealed class MainViewState {
     /**
      * A valid search result. Contains a list of items that have matched the searching criteria.
      */
-    class LoginResult(val messageSucces: String) : MainViewState()
+     class LoginResult(val messageSucces: String) : MainViewState()
 
     /**
      * Indicates that an error has occurred while searching
@@ -35,4 +35,6 @@ sealed class MainViewState {
 
         }
     }
+
+    class WrongUserName(val wrongUserNameMessage: String): MainViewState()
 }

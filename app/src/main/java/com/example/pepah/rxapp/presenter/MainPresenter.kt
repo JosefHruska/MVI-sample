@@ -6,7 +6,6 @@ import com.example.pepah.rxapp.model.MainViewState
 import com.example.pepah.rxapp.view.MainView
 import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 
 
 /**
@@ -17,26 +16,32 @@ class MainPresenter : MviBasePresenter<MainView, MainViewState>() {
 
     override fun bindIntents() {
 
+        val userName: Observable<MainViewState> = intent(MainView::userNameIntent)
+                .doOnNext { ld("Type $it") }.map {
+            var state: MainViewState = MainViewState.LoginNotStarted()
+            if (!it.endsWith("@gmail.com")) {
+                state = MainViewState.WrongUserName("Haha")
+            }
+            state
+        }
+
+
+
         val login: Observable<MainViewState> = intent(MainView::loginIntent).doOnNext {
-            ld("Logging username ${it.first} password: ${it.second}")}.map {
-                var state: MainViewState? = null
-                if (AwesomeNetworkModel.checkLogin(it.first, it.second)) {
+            ld("Logging username ${it.first} password: ${it.second}")
+        }.map {
+            var state: MainViewState = MainViewState.LoginNotStarted()
+            AwesomeNetworkModel.checkLogin(it.first, it.second).map { isValid ->
+                if (isValid) {
                     state = MainViewState.LoginResult("Welcome ${it.first}")
                 } else {
                     state = MainViewState.WrongLogin("Invalid Credentials")
                 }
-                state!!
-            }
-            .startWith { MainViewState.Loading()  }
-                .observeOn(AndroidSchedulers.mainThread())
+            }.subscribe()
+            state
 
 
+        }
         subscribeViewState(login, MainView::render)
-
-
-
-//        var allIntents = Observable.merge(login, passwordIntent())
     }
-
-
 }

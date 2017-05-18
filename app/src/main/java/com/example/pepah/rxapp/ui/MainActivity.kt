@@ -48,9 +48,11 @@ class MainActivity : MviActivity<MainView, MainPresenter>(), MainView {
         } else if (viewState is MainViewState.Loading) {
             renderLoading()
         } else if (viewState is MainViewState.LoginResult) {
-            renderValidLogin((viewState as MainViewState.LoginResult).messageSucces)
+            renderValidLogin(viewState.messageSucces)
         } else if (viewState is MainViewState.WrongLogin) {
             renderWrongLogin()
+        } else if (viewState is MainViewState.WrongUserName) {
+            renderWrongUserName(viewState.wrongUserNameMessage)
         } else if (viewState is MainViewState.Error) {
             renderError()
         } else {
@@ -62,6 +64,12 @@ class MainActivity : MviActivity<MainView, MainPresenter>(), MainView {
         vProgressBar.setVisibility(View.GONE)
         vAction.disable()
         vCurrentStatus.text = messageSucces
+    }
+
+    private fun renderWrongUserName(message: String) {
+        vProgressBar.setVisibility(View.GONE)
+        vAction.disable()
+        vName.error = message
     }
 
     private fun renderLoginNotStarted() {

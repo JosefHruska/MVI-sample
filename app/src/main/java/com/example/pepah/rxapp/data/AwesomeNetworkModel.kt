@@ -1,5 +1,8 @@
 package com.example.pepah.rxapp.data
 
+import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
+
 /**
  * TODO: Add description
  *
@@ -8,12 +11,11 @@ package com.example.pepah.rxapp.data
 
 object AwesomeNetworkModel {
 
-    fun checkLogin(username: String, password: String): Boolean {
+    fun checkLogin(username: String, password: String): Observable<Boolean> {
         if (username == "pepa" && password == "password") {
-            Thread.sleep(5000) // It's difficult, you know.
-            return true
+           return Observable.just(true).delay(10000, TimeUnit.MILLISECONDS)
         }
-        return false
+        return Observable.just(false)
     }
 
 }
